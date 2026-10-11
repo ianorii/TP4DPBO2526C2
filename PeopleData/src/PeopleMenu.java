@@ -40,6 +40,7 @@ public class PeopleMenu extends JFrame {
 
         // agar program berhenti ketika window di-close
         menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        menu.setVisible(true);
     }
 
     // constructor
@@ -48,7 +49,7 @@ public class PeopleMenu extends JFrame {
         listPerson = new ArrayList<>();
 
         // isi data list
-//        populateList();
+        populateList();
 
         // isi personTable
         personTable.setModel(setTable());
@@ -64,6 +65,10 @@ public class PeopleMenu extends JFrame {
         kebugaranSlider.setMinimum(0);
         kebugaranSlider.setMaximum(10);
         kebugaranSlider.setValue(5);
+        kebugaranSlider.setMinorTickSpacing(1);
+        kebugaranSlider.setMajorTickSpacing(5);
+        kebugaranSlider.setPaintTicks(true);
+        kebugaranSlider.setPaintLabels(true);
 
         // sembunyikan button delete
         deleteButton.setVisible(false);
@@ -81,22 +86,57 @@ public class PeopleMenu extends JFrame {
                 }
             }
         });
+
+        // saat tombol cancel ditekan
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                clearForm();
             }
         });
+
+        // saat tombol delete dihapus
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                int pilihan = JOptionPane.showConfirmDialog(null,
+                        "Apakah anda yakin akan menghapus data ini?",
+                        "Konfirmasi hapus", JOptionPane.YES_NO_OPTION);
 
+                if(pilihan == JOptionPane.YES_OPTION) {
+                    deleteData();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Hapus data dibatalkan");
+                }
             }
         });
+
+
         personTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
+                // ubah selectedIndex
+                selectedIndex = personTable.getSelectedRow();
+
+                // ambil value dari table
+                String id = personTable.getModel().getValueAt(selectedIndex, 1).toString();
+                String nama = personTable.getModel().getValueAt(selectedIndex, 2).toString();
+                String tahunLahir = personTable.getModel().getValueAt(selectedIndex, 3).toString();
+                String kategori = personTable.getModel().getValueAt(selectedIndex, 4).toString();
+                String kebugaran = personTable.getModel().getValueAt(selectedIndex, 5).toString();
+
+                // isi textfield
+                idField.setText(id);
+                namaField.setText(nama);
+                tahunField.setText(tahunLahir);
+                kategoriComboBox.setSelectedItem(kategori);
+                kebugaranSlider.setValue(Integer.parseInt(kebugaran));
+
+                // ubah "add" pada button menjadi "update"
+                addUpdateButton.setText("Update");
+
+                // tampilkan button delete
+                deleteButton.setVisible(true);
             }
         });
     };
@@ -122,6 +162,14 @@ public class PeopleMenu extends JFrame {
             tmp.addRow(row);
         }
         return tmp;
+    }
+
+    public void populateList() {
+        listPerson.add(new Person("A001", "Rizky Ramadhan", 2001, "Pemula", 6));
+        listPerson.add(new Person("A002", "Sinta Maharani", 1998, "Menengah", 8));
+        listPerson.add(new Person("A003", "Bimo Prasetyo", 1995, "Ahli", 9));
+        listPerson.add(new Person("A004", "Dewi Lestari", 2003, "Pemula", 5));
+        listPerson.add(new Person("A005", "Fajar Nugroho", 1990, "Ahli", 10));
     }
 
     // method insert
@@ -170,6 +218,9 @@ public class PeopleMenu extends JFrame {
             listPerson.get(selectedIndex).setKategori(kategori);
             listPerson.get(selectedIndex).setKebugaran(kebugaran);
 
+            // perbarui table
+            personTable.setModel(setTable());
+
             // kosongkan form
             clearForm();
 
@@ -181,6 +232,20 @@ public class PeopleMenu extends JFrame {
             JOptionPane.showMessageDialog(null, "Tahun harus berupa angka", "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    public void deleteData() {
+        // hapus data dari list
+        listPerson.remove(selectedIndex);
+
+        // update table
+        personTable.setModel(setTable());
+
+        // clearform
+        clearForm();;
+
+        System.out.println("Delete Berhasil");
+        JOptionPane.showMessageDialog(null, "Data berhasil dihapus");
     }
 
     // method clear form
