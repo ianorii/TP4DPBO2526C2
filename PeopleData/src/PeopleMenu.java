@@ -64,7 +64,7 @@ public class PeopleMenu extends JFrame {
         // set slider
         kebugaranSlider.setMinimum(0);
         kebugaranSlider.setMaximum(10);
-        kebugaranSlider.setValue(5);
+        kebugaranSlider.setValue(0);
         kebugaranSlider.setMinorTickSpacing(1);
         kebugaranSlider.setMajorTickSpacing(5);
         kebugaranSlider.setPaintTicks(true);
@@ -166,10 +166,15 @@ public class PeopleMenu extends JFrame {
 
     public void populateList() {
         listPerson.add(new Person("A001", "Rizky Ramadhan", 2001, "Pemula", 6));
-        listPerson.add(new Person("A002", "Sinta Maharani", 1998, "Menengah", 8));
-        listPerson.add(new Person("A003", "Bimo Prasetyo", 1995, "Ahli", 9));
-        listPerson.add(new Person("A004", "Dewi Lestari", 2003, "Pemula", 5));
-        listPerson.add(new Person("A005", "Fajar Nugroho", 1990, "Ahli", 10));
+        listPerson.add(new Person("A002", "Bimo Prasetyo", 1998, "Menengah", 8));
+        listPerson.add(new Person("A003", "Fajar Nugroho", 1995, "Ahli", 9));
+        listPerson.add(new Person("A004", "Dimas Saputra", 2003, "Pemula", 5));
+        listPerson.add(new Person("A005", "Agus Setiawan", 1990, "Ahli", 10));
+        listPerson.add(new Person("A006", "Rudi Hartono", 1999, "Menengah", 7));
+        listPerson.add(new Person("A007", "Andi Wijaya", 2002, "Pemula", 6));
+        listPerson.add(new Person("A008", "Bagas Pratama", 1996, "Menengah", 8));
+        listPerson.add(new Person("A009", "Yoga Firmansyah", 1993, "Ahli", 9));
+        listPerson.add(new Person("A010", "Ilham Maulana", 2000, "Pemula", 7));
     }
 
     // method untuk cek ID pada list
@@ -294,7 +299,7 @@ public class PeopleMenu extends JFrame {
         idField.setText("");
         namaField.setText("");
         tahunField.setText("");
-        kategoriComboBox.setSelectedItem(0);
+        kategoriComboBox.setSelectedIndex(0);
         kebugaranSlider.setValue(0);
 
         // ubah tulisan pada addUpdateButton
