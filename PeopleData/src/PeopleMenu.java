@@ -172,6 +172,16 @@ public class PeopleMenu extends JFrame {
         listPerson.add(new Person("A005", "Fajar Nugroho", 1990, "Ahli", 10));
     }
 
+    // method untuk cek ID pada list
+    public boolean cekId(String curId) {
+        // return false ketika id sudah ada dalam list
+        // return true ketika id belum ada dalam list
+        for(int i = 0; i < listPerson.size(); i++) {
+            if(listPerson.get(i).getId().equals(curId)) return false;
+        }
+        return true;
+    }
+
     // method insert
     public void insertData() {
         try {
@@ -182,18 +192,33 @@ public class PeopleMenu extends JFrame {
             String kategori = kategoriComboBox.getSelectedItem().toString();
             int kebugaran = kebugaranSlider.getValue();
 
-            // menambahkan data ke dalam list
-            listPerson.add(new Person(id, nama, tahunLahir, kategori, kebugaran));
+            // error handling untuk kategori kosong
+            if(kategori.equals("???")) {
+                JOptionPane.showMessageDialog(null, "Kategori tidak boleh kosong",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
-            // update table
-            personTable.setModel(setTable());
+            if(cekId(id)) {
+                // menambahkan data ke dalam list
+                listPerson.add(new Person(id, nama, tahunLahir, kategori, kebugaran));
 
-            // bersihkan form
-            clearForm();
+                // update table
+                personTable.setModel(setTable());
 
-            // feedback
-            System.out.println("Insert Berhasil");
-            JOptionPane.showMessageDialog(null, "Data berhasil ditambahkan");
+                // bersihkan form
+                clearForm();
+
+                // feedback
+                System.out.println("Insert Berhasil");
+                JOptionPane.showMessageDialog(null, "Data berhasil ditambahkan");
+            } else {
+                // error handling ketika id sudah digunakan
+                System.out.println("ERROR : ID sudah dipakai");
+                JOptionPane.showMessageDialog(null, "ID sudah dipakai",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
         } catch (NumberFormatException ex) {
             // Error handling untuk tahun
             JOptionPane.showMessageDialog(null, "Tahun harus berupa angka", "Error",
@@ -211,22 +236,37 @@ public class PeopleMenu extends JFrame {
             String kategori = kategoriComboBox.getSelectedItem().toString();
             int kebugaran = kebugaranSlider.getValue();
 
-            // memperbarui data
-            listPerson.get(selectedIndex).setId(id);
-            listPerson.get(selectedIndex).setNama(nama);
-            listPerson.get(selectedIndex).setTahunLahir(tahunLahir);
-            listPerson.get(selectedIndex).setKategori(kategori);
-            listPerson.get(selectedIndex).setKebugaran(kebugaran);
+            // error handling untuk kategori kosong
+            if(kategori.equals("???")) {
+                JOptionPane.showMessageDialog(null, "Kategori tidak boleh kosong",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
-            // perbarui table
-            personTable.setModel(setTable());
+            if(cekId(id) || id.equals(listPerson.get(selectedIndex).getId())) {
+                // memperbarui data
+                listPerson.get(selectedIndex).setId(id);
+                listPerson.get(selectedIndex).setNama(nama);
+                listPerson.get(selectedIndex).setTahunLahir(tahunLahir);
+                listPerson.get(selectedIndex).setKategori(kategori);
+                listPerson.get(selectedIndex).setKebugaran(kebugaran);
 
-            // kosongkan form
-            clearForm();
+                // perbarui table
+                personTable.setModel(setTable());
 
-            // feedback
-            System.out.println("Update Berhasil");
-            JOptionPane.showMessageDialog(null, "Data berhasil diubah");
+                // kosongkan form
+                clearForm();
+
+                // feedback
+                System.out.println("Update Berhasil");
+                JOptionPane.showMessageDialog(null, "Data berhasil diubah");
+            } else {
+                // error handling ketika id sudah digunakan
+                System.out.println("ERROR : ID sudah dipakai");
+                JOptionPane.showMessageDialog(null, "ID sudah dipakai",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
         } catch (NumberFormatException ex) {
             // Error handling untuk tahun
             JOptionPane.showMessageDialog(null, "Tahun harus berupa angka", "Error",
