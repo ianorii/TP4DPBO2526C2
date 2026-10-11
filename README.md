@@ -45,6 +45,7 @@ Berfungsi untuk menampilkan form, menampung event handler, serta mengatur data o
 - clearForm() - Mengosongkan semua input form
 - setTable() - Mengatur isi tabel berdasarkan list orang
 - populateList() - Mengisi data awal orang secara default
+- cekId() - Mengecek apakah ID sudah dipakai di dalam list
 
 # ALUR PROGRAM
 ### 1. Tampilan Utama
@@ -75,6 +76,13 @@ Jika memilih Yes, data akan dihapus dari list dan tabel. Jika memilih No, akan m
 ### 5. Cancel/Membersihkan form
 Klik tombol "Cancel" untuk mengosongkan semua input form dan mengembalikan tombol ke kondisi awal (tombol "Update" kembali menjadi "Add", tombol "Delete" disembunyikan).
 
+# ERROR HANDLING
+Program ini memiliki validasi agar data yang masuk tetap benar:
+- Tahun Lahir harus berupa angka. Jika diisi huruf atau dikosongkan, akan muncul pesan "Tahun harus berupa angka" dan data tidak disimpan.
+- Kategori harus dipilih. Jika masih "???", akan muncul pesan "Kategori tidak boleh kosong".
+- ID tidak boleh sama dengan data lain. Jika ID sudah dipakai, akan muncul pesan "ID sudah dipakai". Saat update, ID boleh tetap sama seperti sebelumnya.
+- Setiap hapus data akan ada konfirmasi "Apakah anda yakin akan menghapus data ini?". Data baru dihapus jika memilih Yes.
+
 # KOMPONEN TAMBAHAN (BONUS)
 <b>- Kebugaran (BONUS)</b><br>
 Program ini menambahkan komponen baru berupa JSlider untuk menilai tingkat kebugaran orang (0-10).
@@ -83,25 +91,13 @@ Ini termasuk komponen non-JTextField, sehingga memenuhi kriteria bonus (+20 poin
 
 # DOKUMENTASI
 ## READ
-<!--
-  Isi screenshot tampilan utama / READ di sini, contoh:
-  <img width="933" height="784" alt="Tampilan Utama" src="assets/read.png" />
--->
+![Demo Read](Dokumentasi/Read.gif)
 
 ## ADD
-<!--
-  Isi demo ADD di sini, contoh:
-  ![Demo Add](assets/Add.gif)
--->
+![Demo Add](Dokumentasi/Add.gif)
 
 ## UPDATE
-<!--
-  Isi demo UPDATE di sini, contoh:
-  ![Demo Update](assets/Update.gif)
--->
+![Demo Update](Dokumentasi/Update.gif)
 
 ## DELETE
-<!--
-  Isi demo DELETE di sini, contoh:
-  ![Demo Delete](assets/Delete.gif)
--->
+![Demo Delete](Dokumentasi/Delete.gif)
