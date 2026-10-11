@@ -20,16 +20,16 @@ Class ini berisi atribut dan method getter/setter. Berikut atribut-atributnya:<b
 - int tahunLahir
 - String kategori
 - int kebugaran
-Method:
 - Constructor Person(String id, String nama, int tahunLahir, String kategori, int kebugaran)
-- Getter/setter
-Getter dan Setter untuk setiap atribut
+- Getter/setter untuk setiap atribut
 
 ### 2. Class PeopleMenu extends JFrame<br>
 Class ini berisi Graphical User Interface (GUI) dari program, berfungsi untuk mengatur GUI, serta method untuk insert, update, dan delete.<br>
 
 Class ini mengatur tampilan dan logika aplikasi berbasis GUI.
 Berfungsi untuk menampilkan form, menampung event handler, serta mengatur data orang dalam bentuk tabel.
+
+<img width="700" alt="Tampilan GUI" src="Dokumentasi/GUI.png" />
 
 <b>Komponen Utama GUI:</b>
 - JTextField untuk input ID, Nama, dan Tahun Lahir
@@ -91,23 +91,23 @@ Ini termasuk komponen non-JTextField, sehingga memenuhi kriteria bonus (+20 poin
 
 # DOKUMENTASI
 ## READ
-<img width="600" alt="Demo Read" src="Dokumentasi/Read.gif" />
+<img width="700" alt="Demo Read" src="Dokumentasi/Read.gif" />
 
 ## ADD
-<img width="600" alt="Demo Add" src="Dokumentasi/Add.gif" />
+<img width="700" alt="Demo Add" src="Dokumentasi/Add.gif" />
 
 ## UPDATE
-<img width="600" alt="Demo Update" src="Dokumentasi/Update.gif" />
+<img width="700" alt="Demo Update" src="Dokumentasi/Update.gif" />
 
 ## DELETE
-<img width="600" alt="Demo Delete" src="Dokumentasi/Delete.gif" />
+<img width="700" alt="Demo Delete" src="Dokumentasi/Delete.gif" />
 
 ## ERROR HANDLING
 ### Tahun Lahir bukan angka
-<img width="600" alt="Error 1" src="Dokumentasi/Error1.gif" />
+<img width="700" alt="Error 1" src="Dokumentasi/Error1.gif" />
 
 ### ID sudah dipakai
-<img width="600" alt="Error 2" src="Dokumentasi/Error2.gif" />
+<img width="700" alt="Error 2" src="Dokumentasi/Error2.gif" />
 
 ### Kategori kosong
-<img width="600" alt="Error 3" src="Dokumentasi/Error3.gif" />
+<img width="700" alt="Error 3" src="Dokumentasi/Error3.gif" />
