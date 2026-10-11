@@ -101,3 +101,13 @@ Ini termasuk komponen non-JTextField, sehingga memenuhi kriteria bonus (+20 poin
 
 ## DELETE
 ![Demo Delete](Dokumentasi/Delete.gif)
+
+## ERROR HANDLING
+### Tahun Lahir bukan angka
+![Error 1](Dokumentasi/Error1.gif)
+
+### ID sudah dipakai
+![Error 2](Dokumentasi/Error2.gif)
+
+### Kategori kosong
+![Error 3](Dokumentasi/Error3.gif)
