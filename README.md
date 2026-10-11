@@ -56,7 +56,7 @@ Tampilan utama berisi formulir data orang yang berisi:
 - Kategori
 - Kebugaran
 - Tombol aksi Add/Update, Delete, dan Cancel.
-Di bawah form terdapat tabel yang menampilkan daftar semua orang (No, ID, Nama, Tahun Lahir, Kategori, Kebugaran).
+- Tabel yang menampilkan daftar semua orang (No, ID, Nama, Tahun Lahir, Kategori, Kebugaran).
 
 ### 2. Penambahan Data Baru
 User dapat menambahkan data baru dengan mengisi form data orang kemudian klik tombol aksi "Add" untuk menyimpan data ke dalam tabel.
@@ -83,11 +83,10 @@ Program ini memiliki validasi agar data yang masuk tetap benar:
 - ID tidak boleh sama dengan data lain. Jika ID sudah dipakai, akan muncul pesan "ID sudah dipakai". Saat update, ID boleh tetap sama seperti sebelumnya.
 - Setiap hapus data akan ada konfirmasi "Apakah anda yakin akan menghapus data ini?". Data baru dihapus jika memilih Yes.
 
-# KOMPONEN TAMBAHAN (BONUS)
-<b>- Kebugaran (BONUS)</b><br>
+# KOMPONEN TAMBAHAN
+<b>- Kebugaran </b><br>
 Program ini menambahkan komponen baru berupa JSlider untuk menilai tingkat kebugaran orang (0-10).
-Nilai kebugaran juga ditampilkan di tabel dan disimpan dalam atribut kebugaran di class Person.
-Ini termasuk komponen non-JTextField, sehingga memenuhi kriteria bonus (+20 poin).
+Nilai kebugaran juga ditampilkan di tabel dan disimpan dalam atribut kebugaran di class Perso.
 
 # DOKUMENTASI
 ## READ
