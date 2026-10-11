@@ -91,23 +91,23 @@ Ini termasuk komponen non-JTextField, sehingga memenuhi kriteria bonus (+20 poin
 
 # DOKUMENTASI
 ## READ
-![Demo Read](Dokumentasi/Read.gif)
+<img width="600" alt="Demo Read" src="Dokumentasi/Read.gif" />
 
 ## ADD
-![Demo Add](Dokumentasi/Add.gif)
+<img width="600" alt="Demo Add" src="Dokumentasi/Add.gif" />
 
 ## UPDATE
-![Demo Update](Dokumentasi/Update.gif)
+<img width="600" alt="Demo Update" src="Dokumentasi/Update.gif" />
 
 ## DELETE
-![Demo Delete](Dokumentasi/Delete.gif)
+<img width="600" alt="Demo Delete" src="Dokumentasi/Delete.gif" />
 
 ## ERROR HANDLING
 ### Tahun Lahir bukan angka
-![Error 1](Dokumentasi/Error1.gif)
+<img width="600" alt="Error 1" src="Dokumentasi/Error1.gif" />
 
 ### ID sudah dipakai
-![Error 2](Dokumentasi/Error2.gif)
+<img width="600" alt="Error 2" src="Dokumentasi/Error2.gif" />
 
 ### Kategori kosong
-![Error 3](Dokumentasi/Error3.gif)
+<img width="600" alt="Error 3" src="Dokumentasi/Error3.gif" />
